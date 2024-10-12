@@ -1,9 +1,9 @@
 {
     'name': 'Custom Product Fields',
-    'version': '1.0',
+    'version': '17.0.0.0',
     'category': 'Product',
-    'summary': 'Add custom fields to product template',
-    'description': 'This module adds new fields (Direct Link, Article Number, EAN, Short Description, Long Description) to product.template.',
+    'summary': 'Add custom fields for product images (Direct Link, Article Number, EAN, Short Description, Long Description) to product template',
+    'description': 'This module adds new image fields with URL upload functionality to product.template.',
     'author': 'M Jamshaid +923006868234',
     'depends': ['base', 'product'],
     'data': [
