@@ -16,36 +16,43 @@
                 <page string="Product Images">
                     <group>
                         <div class="oe_clearfix">
+                            <!-- Main Image and URL -->
                             <div style="float: left; width: 3in; height: 3in; margin-right: 10px; border: 1px solid #ddd;">
                                 <field name="main_image" widget="image" class="img" options="{'size': [300, 300]}" style="width: 100%; height: 100%;" />
                                 <field name="main_image_url" placeholder="Enter main image URL"/>
                             </div>
                         </div>
-
+                        <!-- Row of additional smaller images with URLs -->
                         <div class="oe_clearfix" style="margin-top: 10px;">
                             <div style="float: left; width: 1.5in; height: 1.5in; margin-right: 10px; border: 1px solid #ddd;">
                                 <field name="additional_image_1" widget="image" class="img" options="{'size': [150, 150]}" style="width: 100%; height: 100%;" />
                                 <field name="additional_image_1_url" placeholder="Enter image URL"/>
+                                <field name="additional_image_1_url" placeholder="Enter additional image URL"/>
                             </div>
                             <div style="float: left; width: 1.5in; height: 1.5in; margin-right: 10px; border: 1px solid #ddd;">
                                 <field name="additional_image_2" widget="image" class="img" options="{'size': [150, 150]}" style="width: 100%; height: 100%;" />
                                 <field name="additional_image_2_url" placeholder="Enter image URL"/>
+                                <field name="additional_image_2_url" placeholder="Enter additional image URL"/>
                             </div>
                             <div style="float: left; width: 1.5in; height: 1.5in; margin-right: 10px; border: 1px solid #ddd;">
                                 <field name="additional_image_3" widget="image" class="img" options="{'size': [150, 150]}" style="width: 100%; height: 100%;" />
                                 <field name="additional_image_3_url" placeholder="Enter image URL"/>
+                                <field name="additional_image_3_url" placeholder="Enter additional image URL"/>
                             </div>
                             <div style="float: left; width: 1.5in; height: 1.5in; margin-right: 10px; border: 1px solid #ddd;">
                                 <field name="additional_image_4" widget="image" class="img" options="{'size': [150, 150]}" style="width: 100%; height: 100%;" />
                                 <field name="additional_image_4_url" placeholder="Enter image URL"/>
+                                <field name="additional_image_4_url" placeholder="Enter additional image URL"/>
                             </div>
                             <div style="float: left; width: 1.5in; height: 1.5in; margin-right: 10px; border: 1px solid #ddd;">
                                 <field name="additional_image_5" widget="image" class="img" options="{'size': [150, 150]}" style="width: 100%; height: 100%;" />
                                 <field name="additional_image_5_url" placeholder="Enter image URL"/>
+                                <field name="additional_image_5_url" placeholder="Enter additional image URL"/>
                             </div>
                             <div style="float: left; width: 1.5in; height: 1.5in; margin-right: 10px; border: 1px solid #ddd;">
                                 <field name="additional_image_6" widget="image" class="img" options="{'size': [150, 150]}" style="width: 100%; height: 100%;" />
                                 <field name="additional_image_6_url" placeholder="Enter image URL"/>
+                                <field name="additional_image_6_url" placeholder="Enter additional image URL"/>
                             </div>
                         </div>
                     </group>
