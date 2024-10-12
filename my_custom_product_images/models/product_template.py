@@ -41,27 +41,42 @@ class ProductTemplate(models.Model):
                 raise UserError(f"Failed to download image from {url}: {str(e)}")
         return False
 
+    @api.model
+    def create(self, vals):
+        """ Override create to handle image download when importing via CSV """
+        if vals.get('main_image_url'):
+            vals['main_image'] = self._get_image_from_url(vals['main_image_url'])
+        
+        for i in range(1, 7):
+            url_field = f'additional_image_{i}_url'
+            image_field = f'additional_image_{i}'
+            if vals.get(url_field):
+                vals[image_field] = self._get_image_from_url(vals[url_field])
+
+        return super(ProductTemplate, self).create(vals)
+
+    def write(self, vals):
+        """ Override write to handle image download when importing via CSV """
+        if vals.get('main_image_url'):
+            vals['main_image'] = self._get_image_from_url(vals['main_image_url'])
+
+        for i in range(1, 7):
+            url_field = f'additional_image_{i}_url'
+            image_field = f'additional_image_{i}'
+            if vals.get(url_field):
+                vals[image_field] = self._get_image_from_url(vals[url_field])
+
+        return super(ProductTemplate, self).write(vals)
+
     @api.onchange('main_image_url', 'additional_image_1_url', 'additional_image_2_url',
                   'additional_image_3_url', 'additional_image_4_url', 'additional_image_5_url', 'additional_image_6_url')
     def _onchange_image_urls(self):
-        """ Download and update image fields when URLs are set """
+        """ Download and update image fields when URLs are set via form """
         if self.main_image_url:
             self.main_image = self._get_image_from_url(self.main_image_url)
 
-        if self.additional_image_1_url:
-            self.additional_image_1 = self._get_image_from_url(self.additional_image_1_url)
-
-        if self.additional_image_2_url:
-            self.additional_image_2 = self._get_image_from_url(self.additional_image_2_url)
-
-        if self.additional_image_3_url:
-            self.additional_image_3 = self._get_image_from_url(self.additional_image_3_url)
-
-        if self.additional_image_4_url:
-            self.additional_image_4 = self._get_image_from_url(self.additional_image_4_url)
-
-        if self.additional_image_5_url:
-            self.additional_image_5 = self._get_image_from_url(self.additional_image_5_url)
-
-        if self.additional_image_6_url:
-            self.additional_image_6 = self._get_image_from_url(self.additional_image_6_url)
+        for i in range(1, 7):
+            url_field = f'additional_image_{i}_url'
+            image_field = f'additional_image_{i}'
+            if getattr(self, url_field):
+                setattr(self, image_field, self._get_image_from_url(getattr(self, url_field)))
